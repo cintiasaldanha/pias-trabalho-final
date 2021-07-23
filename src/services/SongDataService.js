@@ -7,7 +7,8 @@ class SongDataService {
   }
 
   get(id) {
-    return http.get(`/song/${id}`);
+    //return http.get(`/song/${id}`, { crossdomain: true });
+    return http.get("/song/" + id, { crossdomain: true });
   }
 
   create(data) {

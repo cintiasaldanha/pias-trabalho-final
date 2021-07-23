@@ -53,11 +53,16 @@
           <label><strong># ID:</strong></label> {{ currentSong._id }}
         </div>            
         <div>
-        <!--button class="badge badge-warning"
+
+        <!--<a :href="/songs/" + currentSong._id>Editar</a>-->
+
+        <button class="badge badge-warning"
           :href="'/songs/' + currentSong._id">
           Edit
-        </button-->
-
+        </button>
+       
+       <!--<router-link :to="'/songs/' + currentSong._id" class="badge badge-warning">Edit</router-link>-->
+       
         <button @click="$router.push({name: 'song-details', params: { id: currentSong._id },})">Editar</button>
         </div>
       </div>

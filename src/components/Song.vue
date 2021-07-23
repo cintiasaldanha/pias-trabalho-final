@@ -49,7 +49,7 @@
 
   <div v-else>
     <br />
-    <p>Please click on a Song...</p>
+    <p>Please click on a Song Vue...</p>
   </div>
 </template>
 
@@ -118,10 +118,10 @@ export default {
   },
   mounted() {
     this.message = '';
-    this.getSong(this.$route.params._id);
+    this.getSong(this.$route.params.id);
   }
 };
-</script>
+</script> 
 
 <style>
 .edit-form {
