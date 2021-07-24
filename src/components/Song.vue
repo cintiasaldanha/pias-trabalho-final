@@ -3,18 +3,41 @@
     <h4>Song</h4>
     <form>
       <div class="form-group">
-        <label for="SongName">SongName</label>
+        <label for="SongName">Nome da Música</label>
         <input type="text" class="form-control" id="SongName"
           v-model="currentSong.SongName"
         />
       </div>
       <div class="form-group">
-        <label for="ArtistName">ArtistName</label>
+        <label for="ArtistName">Artista</label>
         <input type="text" class="form-control" id="ArtistName"
           v-model="currentSong.ArtistName"
         />
       </div>
-
+      <div class="form-group">
+        <label for="NumberEpisode "># Episódio</label>
+        <input type="text" class="form-control" id="NumberEpisode "
+          v-model="currentSong.NumberEpisode"
+        />
+      </div>
+      <div class="form-group">
+        <label for="NameEpisode">Nome Episódio</label>
+        <input type="text" class="form-control" id="NameEpisode"
+          v-model="currentSong.NameEpisode"
+        />
+      </div> 
+      <div class="form-group">
+        <label for="NumberSeason"># Temporada</label>
+        <input type="text" class="form-control" id="NumberSeason"
+          v-model="currentSong.NumberSeason"
+        />
+      </div>           
+      <div class="form-group">
+        <label for="_ID"># ID:</label>
+        <input type="text" class="form-control" id="_ID"
+          v-model="currentSong._ID"
+        />
+      </div>  
       <div class="form-group">
         <label><strong>Status:</strong></label>
          "Pending" 
@@ -79,8 +102,11 @@ export default {
     updatePublished(status) {
       var data = {
         id: this.currentSong._id,
-        title: this.currentSong.SongName,
-        description: this.currentSong.ArtistName,
+        SongName: this.currentSong.SongName,
+        ArtistName: this.currentSong.ArtistName,
+        NumberEpisode: this.currentSong.NumberEpisode,
+        NameEpisode: this.currentSong.NameEpisode,
+        NumberSeason: this.currentSong.NumberSeason,
         published: status
       };
 

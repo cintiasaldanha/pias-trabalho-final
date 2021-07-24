@@ -3,7 +3,7 @@
     <!--img alt="Vue logo" src="./assets/logo.png"-->
     <!--HelloWorld msg="Welcome to Your Vue.js App"/-->
     <nav class="navbar navbar-expand navbar-dark bg-dark">
-      <router-link to="/" class="navbar-brand">Interior Sports</router-link>
+      <router-link to="/" class="navbar-brand">BR 21</router-link>
       <div class="navbar-nav mr-auto">
         <li class="nav-item">
           <router-link to="/songs" class="nav-link">Songs</router-link>
@@ -12,11 +12,22 @@
           <router-link to="/addSong" class="nav-link">Add Song</router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/tutorials" class="nav-link">Tutorials</router-link>
+          <router-link to="/temporadas" class="nav-link">Temporadas</router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/addTutorial" class="nav-link">Add Tutorial</router-link>
+          <router-link to="/addTemporada" class="nav-link">Nova Temporada</router-link>
         </li>
+        <li class="nav-item">
+          <router-link to="/times" class="nav-link">Times</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/addTime" class="nav-link">Novo Time</router-link>
+        <li class="nav-item">
+          <router-link to="/jogos" class="nav-link">Jogos</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/addJogo" class="nav-link">Novo Jogo</router-link>
+        </li>                
       </div>
     </nav>	
 

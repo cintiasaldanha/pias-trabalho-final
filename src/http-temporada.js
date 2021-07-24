@@ -2,12 +2,12 @@ import axios from "axios";
 
 
 export default axios.create({
-  baseURL:  "https://arcane-plains-31255.herokuapp.com",  
+  baseURL:  "http://18.205.226.58:82/br21api",  
 
    headers: {
       'Access-Control-Allow-Origin': '*',
       "Content-type": "application/json"
-    }   
+    } 
      
 });
 

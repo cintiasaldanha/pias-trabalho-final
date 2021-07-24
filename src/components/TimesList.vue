@@ -14,51 +14,45 @@
       </div>
     </div>
     <div class="col-md-6">
-      <h4>Songs List</h4>
+      <h4>Times List</h4>
       <ul class="list-group">
         <li class="list-group-item"
           :class="{ active: index == currentIndex }"
-          v-for="(song, index) in songs"
+          v-for="(time, index) in times"
           :key="index"
-          @click="setActiveSong(song, index)"
+          @click="setActiveTime(time, index)"
         >
-          {{ song.SongName }}
+          {{ Time.TimeName }}
         </li>
       </ul>
 
-      <button class="m-3 btn btn-sm btn-danger" @click="removeAllSongs">
+      <button class="m-3 btn btn-sm btn-danger" @click="removeAllTimes">
         Remove All
       </button>
 
     </div>
     <div class="col-md-6">
-      <div v-if="currentSong">
-        <h4>Song</h4>
+      <div v-if="currentTime">
+        <h4>Time</h4>
         <div>
-          <label><strong>Música:</strong></label> {{ currentSong.SongName }}
+          <label><strong>Identificador:</strong></label> {{ currentTime.idttime }}
         </div>
         <div>
-          <label><strong>Artista:</strong></label> {{ currentSong.ArtistName }}
+          <label><strong>Sigla:</strong></label> {{ currentTime.sgltime }}
         </div>
          <div>
-          <label><strong># Episódio:</strong></label> {{ currentSong.NumberEpisode }}
+          <label><strong>Nome:</strong></label> {{ currentTime.dsctime }}
         </div>       
         <div>
-          <label><strong>Nome Episódio:</strong></label> {{ currentSong.NameEpisode }}
-        </div>        
+          <label><strong>Escudo:</strong></label> {{ currentTime.imgescudo }}
+        </div>                  
         <div>
-          <label><strong># Temporada:</strong></label> {{ currentSong.NumberSeason }}
-        </div>
-        <div>
-          <label><strong># ID:</strong></label> {{ currentSong._id }}
-        </div>            
-        <div>
-        <button class="badge badge-primary mr-2" @click="$router.push({name: 'song-details', params: { id: currentSong._id },})">Editar</button>
+        <button class="badge badge-success" @click="$router.push({name: 'time-details', params: { id: currentTime._id },})">Editar</button>
         </div>
       </div>
       <div v-else>
         <br />
-        <p>Selecione uma música...</p>
+        <p>Selecione um time...</p>
       </div>
     </div>
   </div>
@@ -66,23 +60,23 @@
 
 <script>
 
-import SongDataService from "../services/SongDataService";
+import TimesDataService from "../services/TimesDataService";
 
 export default {
-  name: "songs-list",
+  name: "times-list",
   data() {
     return {
-      songs: [],
-      currentSong: null,
+      times: [],
+      currentTime: null,
       currentIndex: -1,
       title: ""
     };
   },
   methods: {
-    retrieveSongs() {
-      SongDataService.getAll()
+    retrieveTimes() {
+      TimesDataService.getAll()
         .then(response => {
-          this.songs = response.data;
+          this.times = response.data;
           console.log(response.data);
         })
         .catch(e => {
@@ -91,18 +85,18 @@ export default {
     },
 
     refreshList() {
-      this.retrieveSongs();
-      this.currentSong = null;
+      this.retrieveTimes();
+      this.currentTime = null;
       this.currentIndex = -1;
     },
 
-    setActiveSong(song, index) {
-      this.currentSong = song;
+    setActiveTime(time, index) {
+      this.currentTime = time;
       this.currentIndex = index;
     },
 
-    removeAllSongs() {
-      SongDataService.deleteAll()
+    removeAllTimes() {
+      TimesDataService.deleteAll()
         .then(response => {
           console.log(response.data);
           this.refreshList();
@@ -113,9 +107,9 @@ export default {
     },
     
     searchTitle() {
-      SongDataService.findByTitle(this.title)
+      TimesDataService.findByTitle(this.title)
         .then(response => {
-          this.songs = response.data;
+          this.times = response.data;
           console.log(response.data);
         })
         .catch(e => {
@@ -124,7 +118,7 @@ export default {
     }
   },
   mounted() {
-    this.retrieveSongs();
+    this.retrieveTimes();
   }
 };
 </script>

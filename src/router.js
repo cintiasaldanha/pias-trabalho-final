@@ -7,6 +7,54 @@ export default new Router({
   //mode: "history",
   routes: [
     {
+      path: "/times",
+      alias: "/allTimes",
+      name: "times",
+      component: () => import("./components/TimesList")
+    },
+    {
+      path: "/times/:id",
+      name: "time-details",
+      component: () => import("./components/Time")
+    },
+    {
+      path: "/addTime",
+      name: "addTime",
+      component: () => import("./components/AddTime")
+    },
+    {
+      path: "/jogos",
+      alias: "/allJogos",
+      name: "jogos",
+      component: () => import("./components/JogosList")
+    },
+    {
+      path: "/jogos/:id",
+      name: "jogo-details",
+      component: () => import("./components/Jogo")
+    },
+    {
+      path: "/addJogo",
+      name: "addJogo",
+      component: () => import("./components/AddJogo")
+    },
+    {
+      path: "/temporadas",
+      alias: "/allTemporadas",
+      name: "temporadas",
+      component: () => import("./components/TemporadasList")
+    },
+    {
+      path: "/temporadas/:id",
+      name: "temporada-details",
+      component: () => import("./components/Temporada")
+    },
+    {
+      path: "/addTemporada",
+      name: "addTemporada",
+      component: () => import("./components/AddTemporada")
+    },        
+    {
       path: "/songs",
       alias: "/allSongs",
       name: "songs",
@@ -41,3 +89,7 @@ export default new Router({
     
   ]
 });
+
+//http://18.205.226.58/br21api/time
+//http://18.205.226.58:81/br21api/jogo
+//http://18.205.226.58:82/br21api/temporada
