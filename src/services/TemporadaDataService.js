@@ -12,19 +12,20 @@ class TemporadaDataService {
   }
 
   create(data) {
-    return http.post("/temporada", data);
+    window.alert(data.idtemporada);
+    return http.post("/temporada", data, { crossdomain: true });
   }
 
   update(id, data) {
-    return http.put(`/temporada/${id}`, data);
+    return http.put(`/temporada/${id}`, data, { crossdomain: true });
   }
 
   delete(id) {
-    return http.delete(`/temporada/${id}`);
+    return http.delete(`/temporada/${id}`, { crossdomain: true });
   }
 
   deleteAll() {
-    return http.delete(`/temporada`);
+    return http.delete(`/temporada`, { crossdomain: true });
   }
 
   /*

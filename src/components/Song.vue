@@ -35,7 +35,7 @@
       <div class="form-group">
         <label for="_ID"># ID:</label>
         <input type="text" class="form-control" id="_ID"
-          v-model="currentSong._ID"
+          v-model="currentSong._id"
         />
       </div>  
       <div class="form-group">

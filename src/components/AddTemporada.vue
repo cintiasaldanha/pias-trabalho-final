@@ -2,14 +2,14 @@
   <div class="submit-form">
     <div v-if="!submitted">
       <div class="form-group">
-        <label for="idTemporada">Temporada</label>
+        <label for="idtemporada">Temporada</label>
         <input
           type="text"
           class="form-control"
-          id="idTemporada"
+          id="idtemporada"
           required
-          v-model="temporada.idTemporada"
-          name="idTemporada"
+          v-model="temporada.idtemporada"
+          name="idtemporada"
         />
       </div>
       <button @click="saveTemporada" class="btn btn-success">Submit</button>
@@ -37,12 +37,14 @@ export default {
   },
   methods: {
     saveTemporada() {
-      var data = {
-        IdTemporada: this.temporada.idTemporada
-      };
+     window.alert("save temporada");
+     
+     var data = {
+        idtemporada: this.temporada.idtemporada
+      };   
 
       TemporadaDataService.create(data)
-        .then(response => {
+        .then(response => {        
           this.temporada.idtemporada= response.data.idtemporada;
           console.log(response.data);
           this.submitted = true;

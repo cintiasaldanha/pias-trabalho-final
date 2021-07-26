@@ -14,7 +14,7 @@
       </div>
     </div>
     <div class="col-md-6">
-      <h4>Times List</h4>
+      <h4>Times</h4>
       <ul class="list-group">
         <li class="list-group-item"
           :class="{ active: index == currentIndex }"
@@ -22,7 +22,7 @@
           :key="index"
           @click="setActiveTime(time, index)"
         >
-          {{ Time.TimeName }}
+          {{ time.dsctime }}
         </li>
       </ul>
 
@@ -42,12 +42,9 @@
         </div>
          <div>
           <label><strong>Nome:</strong></label> {{ currentTime.dsctime }}
-        </div>       
+        </div>                        
         <div>
-          <label><strong>Escudo:</strong></label> {{ currentTime.imgescudo }}
-        </div>                  
-        <div>
-        <button class="badge badge-success" @click="$router.push({name: 'time-details', params: { id: currentTime._id },})">Editar</button>
+        <button class="badge badge-success" @click="$router.push({name: 'time-details', params: { id: currentTime.idttime },})">Editar</button>
         </div>
       </div>
       <div v-else>
@@ -60,7 +57,7 @@
 
 <script>
 
-import TimesDataService from "../services/TimesDataService";
+import TimeDataService from "../services/TimeDataService";
 
 export default {
   name: "times-list",
@@ -74,7 +71,7 @@ export default {
   },
   methods: {
     retrieveTimes() {
-      TimesDataService.getAll()
+      TimeDataService.getAll()
         .then(response => {
           this.times = response.data;
           console.log(response.data);
@@ -96,7 +93,7 @@ export default {
     },
 
     removeAllTimes() {
-      TimesDataService.deleteAll()
+      TimeDataService.deleteAll()
         .then(response => {
           console.log(response.data);
           this.refreshList();
@@ -107,7 +104,7 @@ export default {
     },
     
     searchTitle() {
-      TimesDataService.findByTitle(this.title)
+      TimeDataService.findByTitle(this.title)
         .then(response => {
           this.times = response.data;
           console.log(response.data);

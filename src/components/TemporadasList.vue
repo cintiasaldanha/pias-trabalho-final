@@ -39,7 +39,7 @@
         </div>          
         <div>
        
-        <button class="badge badge-success" @click="$router.push({name: 'temporada-details', params: { id: currentTemporada.idTemporada },})">Editar</button>
+        <button class="badge badge-success" @click="$router.push({name: 'temporada-details', params: { id: currentTemporada.idtemporada },})">Editar</button>
         </div>
       </div>
       <div v-else>

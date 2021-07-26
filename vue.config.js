@@ -15,22 +15,25 @@ module.exports = {
                     '^/token': ''
                 }
             },
-          '/times': {
-                target: 'http://18.205.226.58/br21api/time',
-                changeOrigin: true,
+          '/time': {
+                target: 'https://localhost:44331/br21api', //'http://18.205.226.58/br21api/time',
+                secure: true,                
                 pathRewrite: {
-                    '^/times': ''
-                }
+                    '^/time': ''
+                },
+                changeOrigin: true
             },
-            '/jogos': {
-                target: 'http://18.205.226.58:82/br21api',
-                changeOrigin: true,
+            '/jogo': {
+                target: 'https://localhost:44354/br21api',//'http://18.205.226.58:82/br21api',
+                secure: true,
                 pathRewrite: {
-                    '^/jogos': ''
-                }
+                    '^/jogo': ''
+                },
+                changeOrigin: true
             },
             '/temporada': {
-                target: 'http://18.205.226.58:82/br21api',
+                target: 'https://localhost:44357/br21api', //'http://ec2-18-205-226-58.compute-1.amazonaws.com:82/br21api',
+                secure: true,
                 changeOrigin: true,
                 pathRewrite: {
                     '^/temporada': ''
@@ -40,6 +43,8 @@ module.exports = {
     }
 }
 
+//ec2-18-205-226-58.compute-1.amazonaws.com
+//
 //http://18.205.226.58/br21api/time
 //http://18.205.226.58:81/br21api/jogo
 //http://18.205.226.58:82/br21api/temporada

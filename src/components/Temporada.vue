@@ -3,9 +3,9 @@
     <h4>Temporada</h4>
     <form>
       <div class="form-group">
-        <label for="idTemporada">Temporada</label>
+        <label for="idtemporada">Temporada</label>
         <input type="text" class="form-control" id="idTemporada"
-          v-model="currentTemporada.idTemporada"
+          v-model="currentTemporada.idtemporada"
         />
       </div>
       <div class="form-group">

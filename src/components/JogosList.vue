@@ -22,7 +22,7 @@
           :key="index"
           @click="setActiveJogo(jogo, index)"
         >
-          {{ jogo.dsctimemandante + " " + vlrplacarmandante + " x " + vlrplacarvisitante + " "+ jogo.dsctimevisitante}}
+          {{ jogo.dsctimemandante + " " + jogo.vlrplacarmandante + " x " + jogo.vlrplacarvisitante + " "+ jogo.dsctimevisitante}}
         </li>
       </ul>
 
@@ -56,11 +56,11 @@
           <label><strong>Gols Visitante:</strong></label> {{ currentJogo.vlrplacarvisitante }}
         </div>
         <div>
-          <label><strong># ID:</strong></label> {{ currentJogo._idjogo }}
+          <label><strong># ID:</strong></label> {{ currentJogo.idjogo }}
         </div>            
         <div>
 
-        <button class="badge badge-success" @click="$router.push({name: 'jogo-details', params: { id: currentJogo.idtJogo },})">Editar</button>
+        <button class="badge badge-success" @click="$router.push({name: 'jogo-details', params: { id: currentJogo.idjogo },})">Editar</button>
         </div>
       </div>
       <div v-else>
@@ -73,7 +73,7 @@
 
 <script>
 
-import JogosDataService from "../services/JogosDataService";
+import JogoDataService from "../services/JogoDataService";
 
 export default {
   name: "jogos-list",
@@ -87,7 +87,7 @@ export default {
   },
   methods: {
     retrieveJogos() {
-      JogosDataService.getAll()
+      JogoDataService.getAll()
         .then(response => {
           this.jogos = response.data;
           console.log(response.data);
@@ -109,7 +109,7 @@ export default {
     },
 
     removeAllJogos() {
-      JogosDataService.deleteAll()
+      JogoDataService.deleteAll()
         .then(response => {
           console.log(response.data);
           this.refreshList();
@@ -120,7 +120,7 @@ export default {
     },
     
     searchTitle() {
-      JogosDataService.findByTitle(this.title)
+      JogoDataService.findByTitle(this.title)
         .then(response => {
           this.jogos = response.data;
           console.log(response.data);

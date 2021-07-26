@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 export default axios.create({
-  baseURL:  "http://18.205.226.58:81/br21api",  
+  baseURL:  "https://localhost:44354/br21api", //"http://18.205.226.58:81/br21api",  
 
    headers: {
       'Access-Control-Allow-Origin': '*',

@@ -19,13 +19,7 @@
         <input type="text" class="form-control" id="sgltime"
           v-model="currentTime.sgltime"
         />
-      </div>
-      <div class="form-group">
-        <label for="imgescudo">Imagem:</label>
-        <input type="text" class="form-control" id="imgescudo"
-          v-model="currentTime.imgescudo"
-        />
-      </div>      
+      </div>     
       <div class="form-group">
         <label><strong>Status:</strong></label>
          "Pending" 
@@ -33,7 +27,7 @@
     </form>
 
     <button class="badge badge-primary mr-2"
-      v-if="currentJogo.published"
+      v-if="currentTime.published"
       @click="updatePublished(false)"
     >
       UnPublish
@@ -45,13 +39,13 @@
     </button>
 
     <button class="badge badge-danger mr-2"
-      @click="deleteJogo"
+      @click="deleteTime"
     >
       Delete
     </button>
 
     <button type="submit" class="badge badge-success"
-      @click="updateJogo"
+      @click="updateTime"
     >
       Update
     </button>
@@ -65,10 +59,10 @@
 </template>
 
 <script>
-import TimesDataService from "../services/TimesDataService";
+import TimeDataService from "../services/TimeDataService";
 
 export default {
-  name: "time",
+  name: "time1",
   data() {
     return {
       currentTime: null,
@@ -77,7 +71,7 @@ export default {
   },
   methods: {
     getTime(id) {
-      TimesDataService.get(id)
+      TimeDataService.get(id)
         .then(response => {
           this.currentTime = response.data;
           console.log(response.data);
@@ -92,11 +86,10 @@ export default {
         idttime: this.currentTime.idttime,
         dsctime: this.currentTime.dsctime,
         sgltime: this.currentTime.sgltime,
-        imgescudo: this.currentTime.imgescudo,
         published: status
       };
 
-      TimesDataService.update(this.currentTime._id, data)
+      TimeDataService.update(this.currentTime.idttime, data)
         .then(response => {
           this.currentTime.published = status;
           console.log(response.data);
@@ -107,7 +100,7 @@ export default {
     },
 
     updateTime() {
-      TimesDataService.update(this.currentTime._id, this.currentTime)
+      TimeDataService.update(this.currentTime.idttime, this.currentTime)
         .then(response => {
           console.log(response.data);
           this.message = 'Os dados do time foram atualizados com sucesso!';
@@ -118,7 +111,7 @@ export default {
     },
 
     deleteTime() {
-      TimesDataService.delete(this.currentTime._id)
+      TimeDataService.delete(this.currentTime.idttime)
         .then(response => {
           console.log(response.data);
           this.$router.push({ name: "times" });

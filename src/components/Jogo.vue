@@ -95,7 +95,7 @@
 </template>
 
 <script>
-import JogosDataService from "../services/JogosDataService";
+import JogoDataService from "../services/JogoDataService";
 
 export default {
   name: "jogo",
@@ -107,7 +107,7 @@ export default {
   },
   methods: {
     getJogo(id) {
-      JogosDataService.get(id)
+      JogoDataService.get(id)
         .then(response => {
           this.currentJogo = response.data;
           console.log(response.data);
@@ -134,7 +134,7 @@ export default {
         published: status
       };
 
-      JogosDataService.update(this.currentJogo._id, data)
+      JogoDataService.update(this.currentJogo._id, data)
         .then(response => {
           this.currentJogo.published = status;
           console.log(response.data);
@@ -145,7 +145,7 @@ export default {
     },
 
     updateJogo() {
-      JogosDataService.update(this.currentJogo._id, this.currentJogo)
+      JogoDataService.update(this.currentJogo._id, this.currentJogo)
         .then(response => {
           console.log(response.data);
           this.message = 'Os dados do jogo foram atualizados com sucesso';
@@ -156,7 +156,7 @@ export default {
     },
 
     deleteJogo() {
-      JogosDataService.delete(this.currentJogo._id)
+      JogoDataService.delete(this.currentJogo._id)
         .then(response => {
           console.log(response.data);
           this.$router.push({ name: "jogos" });
