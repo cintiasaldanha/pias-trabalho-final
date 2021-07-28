@@ -2,102 +2,166 @@
   <div class="submit-form">
     <div v-if="!submitted">
       <div class="form-group">
-        <label for="SongName">SongName</label>
+        <label for="idjogo"># Jogo</label>
         <input
           type="text"
           class="form-control"
-          id="SongName"
+          id="idjogo"
           required
-          v-model="song.SongName"
-          name="SongName"
+          v-model="jogo.idjogo"
+          name="idjogo"
         />
       </div>
 
       <div class="form-group">
-        <label for="ArtistName">ArtistName</label>
+        <label for="idttemporada">Temporada</label>
         <input
           class="form-control"
-          id="ArtistName"
+          id="idttemporada"
           required
-          v-model="song.ArtistName"
-          name="ArtistName"
+          v-model="jogo.idttemporada"
+          name="idttemporada"
         />
       </div>
 
       <div class="form-group">
-        <label for="NumberEpisode">NumberEpisode</label>
+        <label for="rodada"># Rodada</label>
         <input
           class="form-control"
-          id="NumberEpisode"
+          id="rodada"
           required
-          v-model="song.NumberEpisode"
-          name="NumberEpisode"
+          v-model="jogo.rodada"
+          name="rodada"
         />
       </div>
 
       <div class="form-group">
-        <label for="NameEpisode">NameEpisode</label>
+        <label for="dtajogo">Data e Horário de Realização</label>
         <input
           class="form-control"
-          id="NameEpisode"
+          id="dtajogo"
           required
-          v-model="song.NameEpisode"
-          name="NameEpisode"
+          v-model="jogo.dtajogo"
+          name="dtajogo"
         />
       </div>
 
       <div class="form-group">
-        <label for="NumberSeason">NumberSeason</label>
+        <label for="idttimemandante">Identificador Time Mandante</label>
         <input
           class="form-control"
-          id="NumberSeason"
+          id="idttimemandante"
           required
-          v-model="song.NumberSeason"
-          name="NumberSeason"
+          v-model="jogo.idttimemandante"
+          name="idttimemandante"
         />
       </div>
 
-      <button @click="saveSong" class="btn btn-success">Submit</button>
+      <div class="form-group">
+        <label for="dsctimemandante">Nome Time Mandante</label>
+        <input
+          class="form-control"
+          id="dsctimemandante"
+          required
+          v-model="jogo.dsctimemandante"
+          name="dsctimemandante"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="vlrplacarmandante"># Gols Time Mandante</label>
+        <input
+          class="form-control"
+          id="vlrplacarmandante"
+          required
+          v-model="jogo.vlrplacarmandante"
+          name="vlrplacarmandante"
+        />
+      </div>
+
+     <div class="form-group">
+        <label for="idttimevisitante">Identificador Time Visitante</label>
+        <input
+          class="form-control"
+          id="idttimevisitante"
+          required
+          v-model="jogo.idttimevisitante"
+          name="idttimevisitante"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="dsctimevisitante">Nome Time Visitante</label>
+        <input
+          class="form-control"
+          id="dsctimevisitante"
+          required
+          v-model="jogo.dsctimevisitante"
+          name="dsctimevisitante"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="vlrplacarvisitante"># Gols Time Visitante</label>
+        <input
+          class="form-control"
+          id="vlrplacarvisitante"
+          required
+          v-model="jogo.vlrplacarvisitante"
+          name="vlrplacarvisitante"
+        />
+      </div>
+
+      <button @click="saveJogo" class="btn btn-success">Submit</button>
     </div>
 
     <div v-else>
-      <h4>You submitted successfully!</h4>
-      <button class="btn btn-success" @click="newSong">Add</button>
+      <h4>Jogo cadastrado com sucesso!</h4>
+      <button class="btn btn-success" @click="newJogo">Add</button>
     </div>
   </div>
 </template>
 
 <script>
-import SongDataService from "../services/SongDataService";
+import JogoDataService from "../services/JogoDataService";
 
 export default {
-  name: "add-song",
+  name: "add-jogo",
   data() {
     return {
-      song: {
-        _id: null,
-        SongName: "",
-        ArtistName: "",
-        NumberEpisode: "",
-        NameEpisode: "",
-        NumberSeason: ""
+      jogo: {
+        idjogo: null,
+        idttemporada: null,
+        rodada: null,
+        dtajogo: "",
+        idttimemandante: "",
+        dsctimemandante: "",
+        vlrplacarmandante: null,
+        idttimevisitante: null,
+        dsctimevisitante: "",
+        vlrplacarvisitante: null
       },
       submitted: false
     };
   },
   methods: {
-    saveSong() {
+    saveJogo() {
       var data = {
-        SongName: this.song.SongName,
-        ArtistName: this.song.ArtistName,
-        NumberEpisode: this.song.NumberEpisode,
-        NameEpisode: this.song.NameEpisode,
-        NumberSeason: this.song.NumberSeason
+        idjogo: parseInt(this.jogo.idjogo),
+        idttemporada: parseInt(this.jogo.idttemporada),
+        rodada: parseInt(this.jogo.rodada),
+        dtajogo: this.jogo.dtajogo,
+        idttimemandante: this.jogo.idttimemandante,
+        dsctimemandante: this.jogo.dsctimemandante,
+        vlrplacarmandante: parseInt(this.jogo.vlrplacarmandante),
+        idttimevisitante: this.jogo.idttimevisitante,
+        dsctimevisitante: this.jogo.dsctimevisitante,
+        vlrplacarvisitante: parseInt(this.jogo.vlrplacarvisitante)
       };
 
-      SongDataService.create(data)
+      JogoDataService.create(data)
         .then(response => {
-          this.song.id = response.data.id;
+          this.jogo.id = response.jogo.id;
           console.log(response.data);
           this.submitted = true;
         })
@@ -106,9 +170,9 @@ export default {
         });
     },
     
-    newSong() {
+    newJogo() {
       this.submitted = false;
-      this.song = {};
+      this.jogo = {};
     }
   }
 };

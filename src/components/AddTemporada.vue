@@ -16,7 +16,7 @@
     </div>
 
     <div v-else>
-      <h4>Informações enviadas com sucesso!</h4>
+      <h4>Temporada cadastrada com sucesso!</h4>
       <button class="btn btn-success" @click="newTemporada">Add</button>
     </div>
   </div>
@@ -40,7 +40,7 @@ export default {
      window.alert("save temporada");
      
      var data = {
-        idtemporada: this.temporada.idtemporada
+        idtemporada: parseInt(this.temporada.idtemporada)
       };   
 
       TemporadaDataService.create(data)

@@ -99,7 +99,7 @@ export default {
       TemporadaDataService.delete(this.currentTemporada.idtemporada)
         .then(response => {
           console.log(response.data);
-          this.$router.push({ name: "temporada" });
+          this.$router.push({ name: "temporadas" });
         })
         .catch(e => {
           console.log(e);

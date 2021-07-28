@@ -2,102 +2,75 @@
   <div class="submit-form">
     <div v-if="!submitted">
       <div class="form-group">
-        <label for="SongName">SongName</label>
+        <label for="idttime"># Time</label>
         <input
           type="text"
           class="form-control"
-          id="SongName"
+          id="idttime"
           required
-          v-model="song.SongName"
-          name="SongName"
+          v-model="time.idttime"
+          name="idttime"
         />
       </div>
 
       <div class="form-group">
-        <label for="ArtistName">ArtistName</label>
+        <label for="sgltime">Sigla</label>
         <input
           class="form-control"
-          id="ArtistName"
+          id="sgltime"
           required
-          v-model="song.ArtistName"
-          name="ArtistName"
+          v-model="time.sgltime"
+          name="sgltime"
         />
       </div>
 
       <div class="form-group">
-        <label for="NumberEpisode">NumberEpisode</label>
+        <label for="dsctime">Nome</label>
         <input
           class="form-control"
-          id="NumberEpisode"
+          id="dsctime"
           required
-          v-model="song.NumberEpisode"
-          name="NumberEpisode"
+          v-model="time.dsctime"
+          name="dsctime"
         />
       </div>
 
-      <div class="form-group">
-        <label for="NameEpisode">NameEpisode</label>
-        <input
-          class="form-control"
-          id="NameEpisode"
-          required
-          v-model="song.NameEpisode"
-          name="NameEpisode"
-        />
-      </div>
-
-      <div class="form-group">
-        <label for="NumberSeason">NumberSeason</label>
-        <input
-          class="form-control"
-          id="NumberSeason"
-          required
-          v-model="song.NumberSeason"
-          name="NumberSeason"
-        />
-      </div>
-
-      <button @click="saveSong" class="btn btn-success">Submit</button>
+      <button @click="saveTime" class="btn btn-success">Submit</button>
     </div>
 
     <div v-else>
-      <h4>You submitted successfully!</h4>
-      <button class="btn btn-success" @click="newSong">Add</button>
+      <h4>Time cadastrado com sucesso!</h4>
+      <button class="btn btn-success" @click="newTime">Add</button>
     </div>
   </div>
 </template>
 
 <script>
-import SongDataService from "../services/SongDataService";
+import TimeDataService from "../services/TimeDataService";
 
 export default {
-  name: "add-song",
+  name: "add-time",
   data() {
     return {
-      song: {
-        _id: null,
-        SongName: "",
-        ArtistName: "",
-        NumberEpisode: "",
-        NameEpisode: "",
-        NumberSeason: ""
+      time: {
+        idttime: "",
+        sgltime: "",
+        dsctime: ""
       },
       submitted: false
     };
   },
   methods: {
-    saveSong() {
+    saveTime(){
       var data = {
-        SongName: this.song.SongName,
-        ArtistName: this.song.ArtistName,
-        NumberEpisode: this.song.NumberEpisode,
-        NameEpisode: this.song.NameEpisode,
-        NumberSeason: this.song.NumberSeason
+        idttime: this.time.idttime,
+        sgltime: this.time.sgltime,
+        dsctime: this.time.dsctime
       };
 
-      SongDataService.create(data)
+      TimeDataService.create(data)
         .then(response => {
-          this.song.id = response.data.id;
+          this.time.idttime = response.data.idttime;
           console.log(response.data);
           this.submitted = true;
         })
@@ -106,9 +79,9 @@ export default {
         });
     },
     
-    newSong() {
+    newTime() {
       this.submitted = false;
-      this.song = {};
+      this.time = {};
     }
   }
 };
