@@ -15,12 +15,6 @@
         />
       </div>
       <div class="form-group">
-        <label for="dsclocal">Local</label>
-        <input type="text" class="form-control" id="dsclocal"
-          v-model="currentJogo.dsclocal"
-        />
-      </div>
-      <div class="form-group">
         <label for="idttimemandante">Identificador Mandante</label>
         <input type="text" class="form-control" id="idttimemandante"
           v-model="currentJogo.idttimemandante"
@@ -45,15 +39,15 @@
         />
       </div>
       <div class="form-group">
-        <label for="dsctimemandante">Mandante</label>
-        <input type="text" class="form-control" id="dsctimemandante"
-          v-model="currentJogo.dsctimemandante"
+        <label for="dsctimevisitante">Visitante</label>
+        <input type="text" class="form-control" id="dsctimevisitante"
+          v-model="currentJogo.dsctimevisitante"
         />
       </div>
       <div class="form-group">
-        <label for="vlrplacarmandante">Gols do Mandante</label>
-        <input type="text" class="form-control" id="vlrplacarmandante"
-          v-model="currentJogo.vlrplacarmandante"
+        <label for="vlrplacarvisitante">Gols do Visitante</label>
+        <input type="text" class="form-control" id="vlrplacarvisitante"
+          v-model="currentJogo.vlrplacarvisitante"
         />                        
       </div>                  
       <div class="form-group">
@@ -109,14 +103,23 @@ export default {
     getJogo(id) {
       JogoDataService.get(id)
         .then(response => {
-          this.currentJogo = response.data;
+          this.currentJogo = response.data[0];
           console.log(response.data);
         })
         .catch(e => {
           console.log(e);
         });
     },
-
+    getByTemporadaRodada(idtemp,idrod, id){
+      JogoDataService.ByTemporadaRodada(idtemp,idrod, id)
+        .then(response => {
+          this.currentJogo = response.data[0];
+          console.log(response.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    },
     updatePublished(status) {
       var data = {
         idttemporada: this.currentJogo.idttemporada,
@@ -168,7 +171,7 @@ export default {
   },
   mounted() {
     this.message = '';
-    this.getJogo(this.$route.params.id);
+    this.getJogo(this.$route.params.idtemp, this.$route.params.idrod, this.$route.params.id);
   }
 };
 </script> 

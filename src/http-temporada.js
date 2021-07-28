@@ -2,8 +2,7 @@ import axios from "axios";
 
 
 export default axios.create({
-  baseURL: 'https://localhost:44357/br21api',// "http://ec2-18-205-226-58.compute-1.amazonaws.com:82/br21api",  
-
+  baseURL: "http://ec2-18-205-226-58.compute-1.amazonaws.com:82/br21api",  //'https://localhost:44357/br21api',
    headers: {
       'Access-Control-Allow-Origin': '*',
       "Content-type": "application/json"

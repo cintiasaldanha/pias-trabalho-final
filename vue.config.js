@@ -16,24 +16,24 @@ module.exports = {
                 }
             },
           '/time': {
-                target: 'https://localhost:44331/br21api', //'http://18.205.226.58/br21api/time',
-                secure: true,                
+                target: 'http://ec2-18-205-226-58.compute-1.amazonaws.com/br21api', //'https://localhost:44331/br21api', //'http://18.205.226.58/br21api/time',
+                //secure: true,                
                 pathRewrite: {
                     '^/time': ''
                 },
                 changeOrigin: true
             },
             '/jogo': {
-                target: 'https://localhost:44354/br21api',//'http://18.205.226.58:82/br21api',
-                secure: true,
+                target: 'http://ec2-18-205-226-58.compute-1.amazonaws.com:81/br21api', //'https://localhost:44354/br21api',//'http://18.205.226.58:82/br21api',
+                //secure: true,
                 pathRewrite: {
                     '^/jogo': ''
                 },
                 changeOrigin: true
             },
             '/temporada': {
-                target: 'https://localhost:44357/br21api', //'http://ec2-18-205-226-58.compute-1.amazonaws.com:82/br21api',
-                secure: true,
+                target: 'http://ec2-18-205-226-58.compute-1.amazonaws.com:82/br21api',//'https://localhost:44357/br21api', //'http://ec2-18-205-226-58.compute-1.amazonaws.com:82/br21api',
+                //secure: true,
                 changeOrigin: true,
                 pathRewrite: {
                     '^/temporada': ''
@@ -42,6 +42,7 @@ module.exports = {
         },
     }
 }
+
 
 //ec2-18-205-226-58.compute-1.amazonaws.com
 //

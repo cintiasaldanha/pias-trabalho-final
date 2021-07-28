@@ -1,6 +1,15 @@
 import http from "../http-temporada";
 
 class TemporadaDataService {
+  
+replacer(key, value) {
+    if (typeof value === "string") {
+      return undefined;
+    }
+    return value;
+  }
+  
+  
   getAll() {
    return http.get("/temporada", { crossdomain: true });
     
@@ -8,12 +17,16 @@ class TemporadaDataService {
 
   get(id) {
     //return http.get(`/temporada/${id}`, { crossdomain: true });
+    //var res =  http.get("/temporada/" + id, { crossdomain: true });
+    //return JSON.stringify(res);
     return http.get("/temporada/" + id, { crossdomain: true });
   }
 
   create(data) {
-    window.alert(data.idtemporada);
-    return http.post("/temporada", data, { crossdomain: true });
+    
+    window.alert(JSON.stringify(data));
+
+    return http.post("/temporada", JSON.stringify(data), { crossdomain: true });
   }
 
   update(id, data) {

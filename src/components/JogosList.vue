@@ -39,18 +39,15 @@
         </div>
         <div>
           <label><strong>Data e hora de realização:</strong></label> {{ currentJogo.dtajogo }}
-        </div>
-         <div>
-          <label><strong>Local:</strong></label> {{ currentJogo.dsclocal }}
-        </div>       
+        </div>     
         <div>
-          <label><strong>Mandante:</strong></label> {{ currentJogo.idttimemandante }} + " " + {{ currentJogo.dsctimemandante }}
+          <label><strong>Mandante:</strong></label> {{ currentJogo.dsctimemandante }}
         </div>        
         <div>
           <label><strong>Gols Mandante:</strong></label> {{ currentJogo.vlrplacarmandante }}
         </div>
         <div>
-          <label><strong>Visitante:</strong></label> {{ currentJogo.idttimevisitante }} + " " + {{ currentJogo.dsctimevisitante }}
+          <label><strong>Visitante:</strong></label> {{ currentJogo.dsctimevisitante }}
         </div>        
         <div>
           <label><strong>Gols Visitante:</strong></label> {{ currentJogo.vlrplacarvisitante }}
@@ -59,8 +56,10 @@
           <label><strong># ID:</strong></label> {{ currentJogo.idjogo }}
         </div>            
         <div>
-
+<!--
         <button class="badge badge-success" @click="$router.push({name: 'jogo-details', params: { id: currentJogo.idjogo },})">Editar</button>
+-->
+<button class="badge badge-success" @click="$router.push({name: 'jogo-details', params: { idtemp: currentJogo.idttemporada , idrod: currentJogo.rodada ,  id: currentJogo.idjogo },})">Editar</button>
         </div>
       </div>
       <div v-else>

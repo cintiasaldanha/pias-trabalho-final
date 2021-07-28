@@ -61,7 +61,7 @@ export default {
     getTemporada(id) {
       TemporadaDataService.get(id)
         .then(response => {
-          this.currentTemporada = response.data;
+          this.currentTemporada = response.data[0];
           console.log(response.data);
         })
         .catch(e => {

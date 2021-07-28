@@ -73,7 +73,7 @@ export default {
     getTime(id) {
       TimeDataService.get(id)
         .then(response => {
-          this.currentTime = response.data;
+          this.currentTime = response.data[0];
           console.log(response.data);
         })
         .catch(e => {
