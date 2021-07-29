@@ -23,19 +23,19 @@
     <button v-else class="badge badge-primary mr-2"
       @click="updatePublished(true)"
     >
-      Publish
+      Publicar
     </button>
 
     <button class="badge badge-danger mr-2"
       @click="deleteTemporada"
     >
-      Delete
+      Excluir
     </button>
 
     <button type="submit" class="badge badge-success"
       @click="updateTemporada"
     >
-      Update
+      Atualizar
     </button>
     <p>{{ message }}</p>
   </div>

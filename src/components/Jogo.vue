@@ -65,19 +65,19 @@
     <button v-else class="badge badge-primary mr-2"
       @click="updatePublished(true)"
     >
-      Publish
+      Publicar
     </button>
 
     <button class="badge badge-danger mr-2"
       @click="deleteJogo"
     >
-      Delete
+      Excluir
     </button>
 
     <button type="submit" class="badge badge-success"
       @click="updateJogo"
     >
-      Update
+      Atualizar
     </button>
     <p>{{ message }}</p>
   </div>
@@ -137,7 +137,7 @@ export default {
         published: status
       };
 
-      JogoDataService.update(this.currentJogo._id, data)
+      JogoDataService.update(this.currentJogo.idjogo, data)
         .then(response => {
           this.currentJogo.published = status;
           console.log(response.data);

@@ -1,5 +1,7 @@
 <template>
+
   <div class="submit-form">
+    <h4>Insira os dados para cadastrar um novo jogo</h4>
     <div v-if="!submitted">
       <div class="form-group">
         <label for="idjogo"># Jogo</label>
@@ -112,12 +114,12 @@
         />
       </div>
 
-      <button @click="saveJogo" class="btn btn-success">Submit</button>
+      <button @click="saveJogo" class="btn btn-success">Cadastrar</button>
     </div>
 
     <div v-else>
       <h4>Jogo cadastrado com sucesso!</h4>
-      <button class="btn btn-success" @click="newJogo">Add</button>
+      <button class="btn btn-success" @click="newJogo">Novo jogo</button>
     </div>
   </div>
 </template>
@@ -137,7 +139,7 @@ export default {
         idttimemandante: "",
         dsctimemandante: "",
         vlrplacarmandante: null,
-        idttimevisitante: null,
+        idttimevisitante: "",
         dsctimevisitante: "",
         vlrplacarvisitante: null
       },

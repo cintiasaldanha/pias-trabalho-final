@@ -1,5 +1,6 @@
 <template>
   <div class="list row">
+    <!--
     <div class="col-md-8">
       <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Search by title"
@@ -13,6 +14,7 @@
         </div>
       </div>
     </div>
+    -->
     <div class="col-md-6">
       <h4>Temporadas</h4>
       <ul class="list-group">
@@ -27,7 +29,7 @@
       </ul>
 
       <button class="m-3 btn btn-sm btn-danger" @click="removeAllTemporadas">
-        Remove All
+        Excluir tudo
       </button>
 
     </div>

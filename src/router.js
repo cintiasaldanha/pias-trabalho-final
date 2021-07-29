@@ -29,7 +29,7 @@ export default new Router({
       component: () => import("./components/JogosList")
     },
     {
-      path: "/jogos/:idtemp/:idrod/:id", //path: "/jogos/:id",
+      path: "/jogos/:idtemp/:idrod/:id",
       name: "jogo-details",
       component: () => import("./components/Jogo")
     },

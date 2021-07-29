@@ -1,5 +1,6 @@
 <template>
   <div class="submit-form">
+    <h4>Insira os dados para cadastrar um novo time:</h4>
     <div v-if="!submitted">
       <div class="form-group">
         <label for="idttime"># Time</label>
@@ -35,12 +36,12 @@
         />
       </div>
 
-      <button @click="saveTime" class="btn btn-success">Submit</button>
+      <button @click="saveTime" class="btn btn-success">Cadastrar</button>
     </div>
 
     <div v-else>
       <h4>Time cadastrado com sucesso!</h4>
-      <button class="btn btn-success" @click="newTime">Add</button>
+      <button class="btn btn-success" @click="newTime">Novo time</button>
     </div>
   </div>
 </template>

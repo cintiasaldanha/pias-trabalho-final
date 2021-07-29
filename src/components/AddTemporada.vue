@@ -1,5 +1,6 @@
 <template>
   <div class="submit-form">
+    <h4>Insira os dados para cadastrar uma nova temporada:</h4>
     <div v-if="!submitted">
       <div class="form-group">
         <label for="idtemporada">Temporada</label>
@@ -12,12 +13,12 @@
           name="idtemporada"
         />
       </div>
-      <button @click="saveTemporada" class="btn btn-success">Submit</button>
+      <button @click="saveTemporada" class="btn btn-success">Cadastrar</button>
     </div>
 
     <div v-else>
       <h4>Temporada cadastrada com sucesso!</h4>
-      <button class="btn btn-success" @click="newTemporada">Add</button>
+      <button class="btn btn-success" @click="newTemporada">Nova temporada</button>
     </div>
   </div>
 </template>
