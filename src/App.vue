@@ -57,9 +57,9 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #fdd62a;
+  color: #e2b900;
   margin-top: 0px;
   background-color: #684860;
-  background-image: url('./assets/mineirao5.jpg');
+  background-image: url('./assets/mineirao6.jpg');
 }
 </style>
