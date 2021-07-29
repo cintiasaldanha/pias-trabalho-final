@@ -39,8 +39,11 @@ module.exports = {
                     '^/temporada': ''
                 }
             }
-        },
-    }
+        }
+    },
+    /*publicPath: process.env.NODE_ENV === 'production'
+    ? '/your/path/to/dist/'
+    : '/'*/
 }
 
 

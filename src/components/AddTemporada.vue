@@ -38,7 +38,6 @@ export default {
   },
   methods: {
     saveTemporada() {
-     window.alert("save temporada");
      
      var data = {
         idtemporada: parseInt(this.temporada.idtemporada)
