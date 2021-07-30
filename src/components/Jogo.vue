@@ -110,8 +110,8 @@ export default {
           console.log(e);
         });
     },
-    getByTemporadaRodada(idtemp,idrod, id){
-      JogoDataService.ByTemporadaRodada(idtemp,idrod, id)
+    getJogoByTemporadaRodada(idtemp,idrod, id){
+      JogoDataService.getByTemporadaRodada(idtemp,idrod, id)
         .then(response => {
           this.currentJogo = response.data[0];
           console.log(response.data);
@@ -148,7 +148,7 @@ export default {
     },
 
     updateJogo() {
-      JogoDataService.update(this.currentJogo._id, this.currentJogo)
+      JogoDataService.update(this.currentJogo.idjogo, this.currentJogo)
         .then(response => {
           console.log(response.data);
           this.message = 'Os dados do jogo foram atualizados com sucesso';
@@ -159,7 +159,7 @@ export default {
     },
 
     deleteJogo() {
-      JogoDataService.delete(this.currentJogo._id)
+      JogoDataService.delete(this.currentJogo.idjogo)
         .then(response => {
           console.log(response.data);
           this.$router.push({ name: "jogos" });
@@ -171,7 +171,7 @@ export default {
   },
   mounted() {
     this.message = '';
-    this.getJogo(this.$route.params.idtemp, this.$route.params.idrod, this.$route.params.id);
+    this.getJogoByTemporadaRodada(this.$route.params.idtemp, this.$route.params.idrod, this.$route.params.id);
   }
 };
 </script> 

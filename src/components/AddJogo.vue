@@ -163,7 +163,7 @@ export default {
 
       JogoDataService.create(data)
         .then(response => {
-          this.jogo.id = response.jogo.id;
+          this.jogo.idjogo = parseInt(response.idjogo);
           console.log(response.data);
           this.submitted = true;
         })

@@ -70,6 +70,11 @@ export default {
     },
 
     updatePublished(status) {
+      if (status){
+        window.alert("Ainda não implementado. Ilustrativo para a POC.");
+      }  
+      
+      /*
       var data = {
         idtemporada: this.currentTemporada.idtemporada,
       };
@@ -82,9 +87,12 @@ export default {
         .catch(e => {
           console.log(e);
         });
+        */
     },
 
     updateTemporada() {
+      window.alert("Ainda não implementado. Ilustrativo para a POC.");
+      /*
       TemporadaDataService.update(this.currentTemporada.idtemporada, this.currentTemporada)
         .then(response => {
           console.log(response.data);
@@ -93,6 +101,7 @@ export default {
         .catch(e => {
           console.log(e);
         });
+       */ 
     },
 
     deleteTemporada() {

@@ -90,6 +90,8 @@ export default {
     },
 
     removeAllTemporadas() {
+      window.alert("Ainda não implementado. Ilustrativo para a POC.");
+      /*
       TemporadaDataService.deleteAll()
         .then(response => {
           console.log(response.data);
@@ -98,6 +100,7 @@ export default {
         .catch(e => {
           console.log(e);
         });
+        */
     },
     
     searchTitle() {

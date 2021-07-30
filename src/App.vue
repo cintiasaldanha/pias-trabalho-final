@@ -59,7 +59,7 @@ export default {
   text-align: center;
   color: #e2b900;
   margin-top: 0px;
-  background-color: #684860;
+  background-color: #2b2128;
   background-image: url('./assets/mineirao6.jpg');
 }
 </style>

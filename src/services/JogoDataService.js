@@ -15,19 +15,19 @@ class JogoDataService {
    }
 
   create(data) {
-    return http.post("/jogo", data);
+    return http.post("/jogo", data, { crossdomain: true });
   }
 
   update(id, data) {
-    return http.put(`/jogo/${id}`, data);
+    return http.put(`/jogo/${id}`, data, { crossdomain: true });
   }
 
   delete(id) {
-    return http.delete(`/jogo/${id}`);
+    return http.delete(`/jogo/${id}`, { crossdomain: true });
   }
 
   deleteAll() {
-    return http.delete(`/jogo`);
+    return http.delete(`/jogo`, { crossdomain: true });
   }
 /*
   findByTitle(title) {
