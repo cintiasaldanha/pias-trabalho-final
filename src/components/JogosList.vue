@@ -107,6 +107,13 @@ export default {
     },
 
     removeAllJogos() {
+      this.$swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Ainda não implementado. Demonstração para a POC.',
+      });
+      
+      /*
       JogoDataService.deleteAll()
         .then(response => {
           console.log(response.data);
@@ -115,6 +122,7 @@ export default {
         .catch(e => {
           console.log(e);
         });
+      */  
     },
     
     searchTitle() {

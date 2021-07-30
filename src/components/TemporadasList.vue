@@ -90,7 +90,11 @@ export default {
     },
 
     removeAllTemporadas() {
-      window.alert("Ainda não implementado. Ilustrativo para a POC.");
+      this.$swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Ainda não implementado. Demonstração para a POC.',
+      });
       /*
       TemporadaDataService.deleteAll()
         .then(response => {

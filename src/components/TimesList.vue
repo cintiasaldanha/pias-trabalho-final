@@ -95,6 +95,12 @@ export default {
     },
 
     removeAllTimes() {
+      this.$swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Ainda não implementado. Demonstração para a POC.',
+      });
+      /*
       TimeDataService.deleteAll()
         .then(response => {
           console.log(response.data);
@@ -103,6 +109,7 @@ export default {
         .catch(e => {
           console.log(e);
         });
+        */
     },
     
     searchTitle() {

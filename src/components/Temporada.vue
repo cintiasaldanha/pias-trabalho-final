@@ -71,7 +71,11 @@ export default {
 
     updatePublished(status) {
       if (status){
-        window.alert("Ainda não implementado. Ilustrativo para a POC.");
+        this.$swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Ainda não implementado. Demonstração para a POC.',
+        });
       }  
       
       /*
@@ -91,7 +95,11 @@ export default {
     },
 
     updateTemporada() {
-      window.alert("Ainda não implementado. Ilustrativo para a POC.");
+      this.$swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Ainda não implementado. Demonstração para a POC.',
+      });
       /*
       TemporadaDataService.update(this.currentTemporada.idtemporada, this.currentTemporada)
         .then(response => {

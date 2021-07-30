@@ -121,6 +121,15 @@ export default {
         });
     },
     updatePublished(status) {
+      if (status){
+        this.$swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Ainda não implementado. Demonstração para a POC.',
+        });
+
+      }
+      /*
       var data = {
         idttemporada: this.currentJogo.idttemporada,
         dtajogo: this.currentJogo.dtajogo,
@@ -145,9 +154,15 @@ export default {
         .catch(e => {
           console.log(e);
         });
+      */  
     },
-
     updateJogo() {
+      this.$swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Ainda não implementado. Demonstração para a POC.',
+      });
+      /*
       JogoDataService.update(this.currentJogo.idjogo, this.currentJogo)
         .then(response => {
           console.log(response.data);
@@ -156,6 +171,7 @@ export default {
         .catch(e => {
           console.log(e);
         });
+        */
     },
 
     deleteJogo() {

@@ -82,6 +82,14 @@ export default {
     },
 
     updatePublished(status) {
+      if (status){
+        this.$swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Ainda não implementado. Demonstração para a POC.',
+        });
+      }
+      /*
       var data = {
         idttime: this.currentTime.idttime,
         dsctime: this.currentTime.dsctime,
@@ -97,9 +105,16 @@ export default {
         .catch(e => {
           console.log(e);
         });
+        */
     },
 
     updateTime() {
+      this.$swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Ainda não implementado. Demonstração para a POC.',
+      });
+      /*
       TimeDataService.update(this.currentTime.idttime, this.currentTime)
         .then(response => {
           console.log(response.data);
@@ -108,6 +123,7 @@ export default {
         .catch(e => {
           console.log(e);
         });
+      */  
     },
 
     deleteTime() {
