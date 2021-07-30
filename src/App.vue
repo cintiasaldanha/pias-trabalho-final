@@ -31,7 +31,7 @@
               
       </div>
     </nav>
-        <Home msg="Cadastro - Brasileirão"/>	
+        <Home msg="Bom Dia Lavras"/>	
 
     <div class="container mt-3">
       <router-view />

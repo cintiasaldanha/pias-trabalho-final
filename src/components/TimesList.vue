@@ -16,7 +16,7 @@
     </div>
     -->
     <div class="col-md-6">
-      <h4>Times</h4>
+      <h4>Times - Brasileirão</h4>
       <ul class="list-group">
         <li class="list-group-item"
           :class="{ active: index == currentIndex }"
